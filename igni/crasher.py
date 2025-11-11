@@ -21,7 +21,7 @@ MAX_RETRY_TIMES = 10
 SUCCESS_BANNER = b'Analysis Success!!!'
 
 UTIL_DIR = os.path.join(os.path.dirname(__file__), "utils")
-KEY_PATH = os.path.join(UTIL_DIR, "img", "buster.id_rsa")
+KEY_PATH = os.path.join(UTIL_DIR, "img", "trixie.id_rsa")
 GDB_SCRIPT = os.path.join(UTIL_DIR, "gdb.py")
 PATCH_SCRIPT = os.path.join(UTIL_DIR, "patch.py")
 ANALYZE_SCRIPT = os.path.join(UTIL_DIR, "analyze.py")
@@ -87,7 +87,7 @@ class Crasher:
     def connect(self):
         self.logger.debug("Connecting ssh...")
         try:
-            self.ssh = ssh(user=USERNAME, host=IP, port=self.ssh_port, keyfile=self.key)
+            self.ssh = ssh(user=USERNAME, host=IP, port=self.ssh_port, keyfile=self.key, ignore_config=True)
             return True
         except Exception as e:
             self.logger.exception(e)
