@@ -16,7 +16,7 @@ if [ -z ${ADD_PACKAGE+x} ]; then
 fi
 
 # Variables affected by options
-RELEASE=buster
+RELEASE=trixie
 FEATURE=minimal
 SEEK=2047
 PERF=false
