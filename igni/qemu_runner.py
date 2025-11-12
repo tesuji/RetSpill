@@ -12,7 +12,7 @@ context.log_level = 'error'
 
 CRASH_IP = b"ffffffffdeadbeef"
 PANIC_BANNER = b" Kernel panic "
-DEFAULT_MAX_READY_TIMEOUT = 60
+DEFAULT_MAX_READY_TIMEOUT = 90
 CORE_NUM = 2
 MEM_SIZE = 2
 
