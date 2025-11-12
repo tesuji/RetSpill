@@ -79,10 +79,15 @@ mkdir qemu/build && cd qemu/build && ../configure --target-list=x86_64-softmmu -
 cd scripts/create-image/ && ./create-image.sh && cd ../..
 ~~~
 
+### Step 4: Install uv
+~~~
+pip install uv
+~~~
+
 ## Sample Usage
 Run the following command, where `<retspill>/exploit_env/CVEs/CVE-2010-2959/poc/poc` is a proof-of-concept binary that will crash the kernel at `PC==0xffffffffdeadbeef`.
 ~~~
-python3 analyzer.py -k <retspill>/exploit_env/CVEs/CVE-2010-2959/kernel/arch/x86/boot/bzImage -e <retspill>/exploit_env/CVEs/CVE-2010-2959/poc/poc
+uv run analyzer.py -k <retspill>/exploit_env/CVEs/CVE-2010-2959/kernel/arch/x86/boot/bzImage -e <retspill>/exploit_env/CVEs/CVE-2010-2959/poc/poc
 ~~~
 After about 5-10 minutes, the system will output something like the following:
 ~~~

@@ -1,0 +1,18 @@
+[project]
+name = "retspill"
+version = "0.1.0"
+description = "RetSpill"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "jinja2",
+    "pwntools",
+    "pyelftools",
+    "monkeyhex",
+    "colorlog",
+    "setuptools>=80.9.0",
+    "angr==9.2.100",
+    # the angrop on pypi is broken
+    "angrop @ git+https://github.com/angr/angrop@e325bb60a0251bb8c0075205187ed7cff54ec682",
+]
+

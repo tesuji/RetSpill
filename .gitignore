@@ -3,4 +3,5 @@
 **.id_rsa
 **.id_rsa.pub
 **.img
+.venv
 scripts/create-image/chroot/
