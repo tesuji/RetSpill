@@ -2,6 +2,20 @@
 # Copyright 2025 syzkaller project authors. All rights reserved.
 # Use of this source code is governed by Apache 2 LICENSE that can be found in the LICENSE file.
 
+usage() {
+    echo "Please use the ./create-image.sh instead." >&2
+    exit 1
+}
+
+# Prevent execution if not sourced
+(return 0 2>/dev/null) || {
+    usage
+}
+
+if [ -z "$DIR" ] || [ "$(realpath "$DIR")" = / ]; then
+    usage
+fi
+
 # Set some defaults and enable promtless ssh to the machine for root.
 sudo sed -i '/^root/ { s/:x:/::/ }' $DIR/etc/passwd
 echo 'T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100' | sudo tee -a $DIR/etc/inittab

@@ -32,5 +32,5 @@ RUN ./debootstrap.sh
 
 # will copy the img file to /mnt. Need --privilege flag for docker run.
 COPY --chmod=0755 configure.sh /src/
-CMD ["bash", "-x", "./configure.sh"]
+CMD ["bash", "-c", "set -ex; source ./configure.sh"]
 
