@@ -13,17 +13,15 @@ run curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > /tmp/a && bash /
 env PATH="/root/.cargo/bin/:${PATH}"
 run cargo install ropr
 
-# clone the repo and upload the disk image
-run git clone --depth 1 https://github.com/sefcom/RetSpill /RetSpill
-copy scripts/create-image /RetSpill/scripts/create-image
-
 # setup the running environment
-# the angrop on pypi is broken
-run pip install angr monkeyhex jinja2 pwntools colorlog tqdm
-run git clone https://github.com/angr/angrop /angrop
-run cd /angrop && pip install -e .
 run apt-get install -y gdb
 run mkdir /root/.ssh/
+run pip install uv
+workdir /RetSpill
+copy ./pyproject.toml ./uv.lock ./
+run uv sync
 
+# clone the repo and upload the disk image
+copy . /RetSpill/
 workdir /RetSpill/igni
-cmd bash
+# cmd ["bash"]
