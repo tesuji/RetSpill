@@ -3,7 +3,7 @@
 # Use of this source code is governed by Apache 2 LICENSE that can be found in the LICENSE file.
 
 usage() {
-    echo "Please use the ./create-image.sh instead." >&2
+    echo "Please use ./create-image.sh instead." >&2
     exit 1
 }
 
@@ -12,7 +12,7 @@ usage() {
     usage
 }
 
-if [ -z "$DIR" ] || [ "$(realpath "$DIR")" = / ]; then
+if [ -z "$DIR" ] || [ "$(readlink -f "$DIR")" = / ]; then
     usage
 fi
 

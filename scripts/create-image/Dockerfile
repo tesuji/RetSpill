@@ -30,7 +30,7 @@ WORKDIR /src
 COPY --chmod=0755 debootstrap.sh /src/
 RUN ./debootstrap.sh
 
-# will copy the img file to /mnt. Need --privilege flag for docker run.
+# will copy the img file to /mnt. Need --privileged flag for docker run.
 COPY --chmod=0755 configure.sh /src/
-CMD ["bash", "-c", "set -ex; source ./configure.sh"]
+CMD ["bash", "-c", "set -ex; source /src/configure.sh"]
 

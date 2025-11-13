@@ -83,7 +83,7 @@ Or if you prefer using docker to build your image:
 ~~~
 cd scripts/create-image/
 docker build -t img .
-docker run -v $(pwd):/mnt --privileged --rm img
+docker run -v "$(pwd)":/mnt --privileged --rm img
 ~~~
 
 Notice that `privileged` is necessary because we want to use `/dev/loop*` inside docker.
